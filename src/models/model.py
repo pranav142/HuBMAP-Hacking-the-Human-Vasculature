@@ -34,6 +34,8 @@ class LightningModule(pl.LightningModule):
         self.loss_module = smp.losses.DiceLoss(mode="binary", smooth=config["loss_smooth"])
         self.val_step_outputs = []
         self.val_step_labels = []
+        self.train_step_outputs = []
+        self.train_step_labels = []
     
     def forward(self, batch):
         preds = self.model(batch)
@@ -50,8 +52,8 @@ class LightningModule(pl.LightningModule):
             preds = torch.nn.functional.interpolate(preds, size=512, mode='bilinear')
         loss = self.loss_module(preds, labels)
         self.log("Train_loss", loss, on_step=False, on_epoch=True, prog_bar=True)
-        self.val_step_outputs.append(preds)
-        self.val_step_labels.append(labels)
+        self.train_step_outputs.append(preds)
+        self.train_step_labels.append(labels)
         return loss
     
     def validation_step(self, batch, batch_idx):
@@ -64,16 +66,36 @@ class LightningModule(pl.LightningModule):
         self.val_step_outputs.append(preds)
         self.val_step_labels.append(labels)
     
-    def on_validation_epoch_end(self):
-        all_preds = torch.cat(self.val_step_outputs).cpu()
-        all_labels = torch.cat(self.val_step_labels).cpu()
+    def __create_preds_labels(self, outputs, labels):
+        if len(outputs) == 0 or len(labels) == 0: 
+            return None, None
+        all_preds = torch.cat(outputs).cpu()
+        all_labels = torch.cat(labels).cpu()
         all_preds = all_preds.to(torch.float32) 
         all_labels = all_labels.to(torch.float32) 
         all_preds = torch.sigmoid(all_preds)
+        return all_preds, all_labels
+    
+    def __clear_lists(self) -> None:
         self.val_step_outputs.clear()
         self.val_step_labels.clear()
-        val_dice = dice(all_preds, all_labels.long())
+        self.train_step_outputs.clear()
+        self.train_step_labels.clear()
+
+    def __calculate_dice(self, preds, labels): 
+        if preds is None:
+            return -1
+        dice_coef = dice(preds, labels.long())
+        return dice_coef
+    
+    def on_validation_epoch_end(self):
+        train_preds, train_labels = self.__create_preds_labels(self.train_step_outputs, self.train_step_labels)
+        val_preds, val_labels = self.__create_preds_labels(self.val_step_outputs, self.val_step_labels)
+        self.__clear_lists()
+        val_dice = self.__calculate_dice(val_preds, val_labels)
+        train_dice = self.__calculate_dice(train_preds, train_labels)
         self.log("val_dice", val_dice, on_step=False, on_epoch=True, prog_bar=True)
+        self.log("train_dice", train_dice, on_step=False, on_epoch=True, prog_bar=True)
         if self.trainer.global_rank == 0:
             print(f"\nEpoch: {self.current_epoch}", flush=True)
 

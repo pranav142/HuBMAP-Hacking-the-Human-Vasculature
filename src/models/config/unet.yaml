@@ -1,5 +1,5 @@
 data_path: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/data"
-output_dir: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/models/unet"
+output_dir: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/models/unet/version_1"
 
 folds:
   n_splits: 5
@@ -8,8 +8,8 @@ train_folds: [0, 1, 2, 3, 4]
 
 seed: 42
 
-train_bs: 2
-valid_bs: 1
+train_bs: 4
+valid_bs: 4
 workers: 1
 
 progress_bar_refresh_rate: 1
@@ -21,8 +21,8 @@ early_stop:
   verbose: 1
 
 trainer:
-  max_epochs: 5
-  min_epochs: 5
+  max_epochs: 10
+  min_epochs: 10
   enable_progress_bar: True
   precision: "16-mixed"
   devices: 1
@@ -31,7 +31,7 @@ model:
   seg_model: "Unet"
   encoder_name: "timm-resnest26d"
   loss_smooth: 1.0
-  image_size: 256
+  image_size: 512
   optimizer_params:
     lr: 0.0005
     weight_decay: 0.0

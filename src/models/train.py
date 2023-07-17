@@ -48,12 +48,7 @@ if __name__ == '__main__':
         
         image, mask = dataset_train[0]
         print(f"Image Shape: {image.shape}, Mask Shape: {mask.shape}")
-        # image, mask = dataset_train[0]
-        # fig, axs = plt.subplots(1, 2, figsize=(16, 8))
-        # axs[0].imshow(image.permute(1,2,0))
-        # axs[1].imshow(mask)
-        # print(f"Image: {image.shape}, Mask: {mask.shape}")
-        
+    
         data_loader_train = DataLoader(
             dataset_train,
             batch_size=config["train_bs"],
@@ -107,3 +102,5 @@ if __name__ == '__main__':
         )
         torch.cuda.empty_cache()
         gc.collect()
+
+        break
