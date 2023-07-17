@@ -24,7 +24,7 @@ class LightningModule(pl.LightningModule):
     def __init__(self, config):
         super().__init__()
         self.config = config
-        self.model = model = seg_models[config["seg_model"]](
+        self.model = seg_models[config["seg_model"]](
             encoder_name=config["encoder_name"],
             encoder_weights="imagenet",
             in_channels=3,
@@ -65,8 +65,10 @@ class LightningModule(pl.LightningModule):
         self.val_step_labels.append(labels)
     
     def on_validation_epoch_end(self):
-        all_preds = torch.cat(self.val_step_outputs)
-        all_labels = torch.cat(self.val_step_labels)
+        all_preds = torch.cat(self.val_step_outputs).cpu()
+        all_labels = torch.cat(self.val_step_labels).cpu()
+        all_preds = all_preds.to(torch.float32) 
+        all_labels = all_labels.to(torch.float32) 
         all_preds = torch.sigmoid(all_preds)
         self.val_step_outputs.clear()
         self.val_step_labels.clear()
@@ -74,3 +76,7 @@ class LightningModule(pl.LightningModule):
         self.log("val_dice", val_dice, on_step=False, on_epoch=True, prog_bar=True)
         if self.trainer.global_rank == 0:
             print(f"\nEpoch: {self.current_epoch}", flush=True)
+
+
+
+

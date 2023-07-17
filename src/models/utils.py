@@ -14,7 +14,7 @@ def create_df(config, train_folder: str, polygons_json: str) -> pd.DataFrame:
     json_df = os.path.join(config["data_path"], polygons_json)
 
     df = pd.read_json(json_df, lines=True)
-    df["path"] = train_dir + "/" + df["id"] + ".tif"
+    df["path"] = df["path"] = train_dir + "\\" + df["id"] + ".tif"
     return df
 
 def create_folds(df: pd.DataFrame, config):

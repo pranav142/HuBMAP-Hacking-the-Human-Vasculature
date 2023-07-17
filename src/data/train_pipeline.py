@@ -16,12 +16,10 @@ class HubMAP_Dataset(torch.utils.data.Dataset):
         # Explore mean and standard deviation of our data
         self.normalize_image = T.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
         self.image_size = image_size
-        if image_size != 512:
-            self.resize_image = T.transforms.Resize(image_size)
+        self.resize_image = T.transforms.Resize(image_size)
     
     
-    @staticmethod
-    def __get_id(path: str) -> str:
+    def __get_id(self, path: str) -> str:
         """Extracts image id from path"""
         parts = path.split("/")
         file_name = parts[-1]
@@ -32,15 +30,18 @@ class HubMAP_Dataset(torch.utils.data.Dataset):
     def __get_image(self, path: str) -> np.array:
         """Gets Image From Path"""
         image = cv2.imread(path)
-        return torch.tensor(np.reshape(image, (self.image_size, self.image_size, 3))).to(torch.float32).permute(2, 0, 1)
+        image = image/255
+        return torch.tensor(np.reshape(image, (512, 512, 3))).to(torch.float32).permute(2, 0, 1)
 
     
     def __get_mask(self, path: str) -> np.array:
         """Creates Mask From Path"""
-        image_id = HubMAP_Dataset.__get_id(path)
+        #image_id = self.__get_id(path)
 
-        mask = np.zeros((self.image_size, self.image_size, 1), dtype=np.uint8)
-        annots = self.df.loc[self.df["id"] == image_id, 'annotations'].iloc[0]
+        mask = np.zeros((512, 512, 1), dtype=np.uint8)
+        annots = self.df.loc[self.df["path"] == path, 'annotations'].iloc[0]
+        if isinstance(annots, str):
+            annots = eval(annots)
         for annot in annots:
             annot_type = annot['type']
             coordinates = annot['coordinates']
@@ -59,6 +60,7 @@ class HubMAP_Dataset(torch.utils.data.Dataset):
         
         img = self.__get_image(path)
         mask = self.__get_mask(path)
+        img = self.resize_image(img)
         img = self.normalize_image(img)
         
         return img.float(), mask.float()
