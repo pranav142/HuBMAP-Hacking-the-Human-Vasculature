@@ -131,8 +131,8 @@ def draw_mask_image_overlay(image_id: str, polygons_df: pd.DataFrame, base_dir:s
     plt.show()
 
 
-def display_dataset(dataset, num_examples: int = 10)-> None: 
-    fig, axs = plt.subplots(num_examples, 2, figsize=((num_examples//4) *8, 8 * num_examples))
+def display_dataset(dataset, num_examples: int = 10, figsize=(8, 8))-> None: 
+    fig, axs = plt.subplots(num_examples, 2, figsize=figsize)
 
     for i in range(num_examples):
         image, mask = dataset[i]
