@@ -19,8 +19,8 @@ import pandas as pd
 from data.train_pipeline import HubMAP_Dataset
 from model import LightningModule
 
-if __name__ == '__main__':
-    BASE_DIR = "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/" 
+if __name__ == "__main__":
+    BASE_DIR = "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/"
     CONFIG_PATH = os.path.join(BASE_DIR, "src/models/config/unet.yaml")
 
     print(CONFIG_PATH)
@@ -43,12 +43,16 @@ if __name__ == '__main__':
         trn_df = df[df.kfold != fold].reset_index(drop=True)
         vld_df = df[df.kfold == fold].reset_index(drop=True)
 
-        dataset_train = HubMAP_Dataset(trn_df, config["model"]["image_size"], train=True)
-        dataset_validation = HubMAP_Dataset(vld_df, config["model"]["image_size"], train=False)
-        
+        dataset_train = HubMAP_Dataset(
+            trn_df, config["model"]["image_size"], train=True
+        )
+        dataset_validation = HubMAP_Dataset(
+            vld_df, config["model"]["image_size"], train=False
+        )
+
         image, mask = dataset_train[0]
         print(f"Image Shape: {image.shape}, Mask Shape: {mask.shape}")
-    
+
         data_loader_train = DataLoader(
             dataset_train,
             batch_size=config["train_bs"],
@@ -78,10 +82,9 @@ if __name__ == '__main__':
 
         early_stop_callback = EarlyStopping(**config["early_stop"])
 
-
         trainer = pl.Trainer(
             callbacks=[checkpoint_callback, early_stop_callback, progress_bar_callback],
-            logger=CSVLogger(save_dir=f'logs_f{fold}/'),
+            logger=CSVLogger(save_dir=f"logs_f{fold}/"),
             **config["trainer"],
         )
 
