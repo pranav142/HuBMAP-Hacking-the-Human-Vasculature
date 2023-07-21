@@ -1,5 +1,6 @@
 import warnings
 import sys
+import wandb
 
 sys.path.append("../../src")
 warnings.filterwarnings("ignore")
@@ -18,10 +19,11 @@ from utils import load_yaml, create_df, create_folds
 import pandas as pd
 from data.train_pipeline import HubMAP_Dataset
 from model import LightningModule
+from pytorch_lightning.loggers import WandbLogger
 
 if __name__ == "__main__":
     BASE_DIR = "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/"
-    CONFIG_PATH = os.path.join(BASE_DIR, "src/models/config/unet.yaml")
+    CONFIG_PATH = os.path.join(BASE_DIR, "src/models/config/unet-0.yaml")
 
     print(CONFIG_PATH)
     torch.set_float32_matmul_precision("medium")
@@ -82,9 +84,17 @@ if __name__ == "__main__":
 
         early_stop_callback = EarlyStopping(**config["early_stop"])
 
+        wandb_logger = WandbLogger(project="my-awesome-project")
+
+        wandb_logger.experiment.config["batch_size"] = config["train_bs"]
+
         trainer = pl.Trainer(
-            callbacks=[checkpoint_callback, early_stop_callback, progress_bar_callback],
-            logger=CSVLogger(save_dir=f"logs_f{fold}/"),
+            callbacks=[
+                checkpoint_callback,
+                early_stop_callback,
+                progress_bar_callback,
+            ],
+            logger=[CSVLogger(save_dir=f"logs_f{fold}/"), wandb_logger],
             **config["trainer"],
         )
 
@@ -105,5 +115,7 @@ if __name__ == "__main__":
         )
         torch.cuda.empty_cache()
         gc.collect()
+
+        wandb.finish()
 
         break

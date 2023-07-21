@@ -7,6 +7,7 @@ import torch.nn as nn
 import segmentation_models_pytorch as smp
 from torchmetrics.functional import dice
 from transformers import get_cosine_with_hard_restarts_schedule_with_warmup
+import wandb
 
 seg_models = {
     "Unet": smp.Unet,
@@ -39,6 +40,7 @@ class LightningModule(pl.LightningModule):
         self.val_step_labels = []
         self.train_step_outputs = []
         self.train_step_labels = []
+        self.save_hyperparameters()
 
     def forward(self, batch):
         preds = self.model(batch)
@@ -92,6 +94,7 @@ class LightningModule(pl.LightningModule):
         return dice_coef
 
     def on_validation_epoch_end(self):
+        torch.cuda.empty_cache()
         train_preds, train_labels = self.__create_preds_labels(
             self.train_step_outputs, self.train_step_labels
         )
