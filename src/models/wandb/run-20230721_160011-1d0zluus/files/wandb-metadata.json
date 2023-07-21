@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.11.4",
+    "heartbeatAt": "2023-07-21T23:00:13.213371",
+    "startedAt": "2023-07-21T23:00:11.867105",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "D:\\Machine_Learning\\hubmap-hacking-the-human-vasculature\\src\\models\\train.py",
+    "codePath": "src\\models\\train.py",
+    "git": {
+        "remote": "https://github.com/pranav142/HuBMAP-Hacking-the-Human-Vasculature.git",
+        "commit": "819f3f3399b92dddfb2d15ffce0d306407ccfc33"
+    },
+    "email": "pknadimp@gmail.com",
+    "root": "D:/Machine_Learning/hubmap-hacking-the-human-vasculature",
+    "host": "DESKTOP-I73899R",
+    "username": "pknad",
+    "executable": "C:\\Users\\pknad\\anaconda3\\envs\\pytorch\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3201.0,
+        "min": 0.0,
+        "max": 3201.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3201.0,
+            "min": 0.0,
+            "max": 3201.0
+        }
+    ],
+    "disk": {
+        "total": 931.4794883728027,
+        "used": 14.059440612792969
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.365715026855469
+    }
+}

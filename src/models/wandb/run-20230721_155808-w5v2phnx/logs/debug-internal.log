@@ -1,0 +1,232 @@
+2023-07-21 15:58:08,456 INFO    StreamThr :20128 [internal.py:wandb_internal():86] W&B internal server running at pid: 20128, started at: 2023-07-21 15:58:08.455429
+2023-07-21 15:58:08,457 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status
+2023-07-21 15:58:08,458 INFO    WriterThread:20128 [datastore.py:open_for_write():85] open: .\wandb\run-20230721_155808-w5v2phnx\run-w5v2phnx.wandb
+2023-07-21 15:58:08,460 DEBUG   SenderThread:20128 [sender.py:send():369] send: header
+2023-07-21 15:58:08,544 DEBUG   SenderThread:20128 [sender.py:send():369] send: run
+2023-07-21 15:58:08,547 INFO    SenderThread:20128 [sender.py:_maybe_setup_resume():737] checking resume status for None/my-awesome-project/w5v2phnx
+2023-07-21 15:58:09,219 INFO    SenderThread:20128 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20230721_155808-w5v2phnx\files
+2023-07-21 15:58:09,220 INFO    SenderThread:20128 [sender.py:_start_run_threads():1100] run started: w5v2phnx with start time 1689980288.456428
+2023-07-21 15:58:09,220 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: summary_record
+2023-07-21 15:58:09,220 INFO    SenderThread:20128 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-21 15:58:09,223 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: check_version
+2023-07-21 15:58:09,223 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: check_version
+2023-07-21 15:58:09,733 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: run_start
+2023-07-21 15:58:09,755 DEBUG   HandlerThread:20128 [system_info.py:__init__():31] System info init
+2023-07-21 15:58:09,755 DEBUG   HandlerThread:20128 [system_info.py:__init__():46] System info init done
+2023-07-21 15:58:09,755 INFO    HandlerThread:20128 [system_monitor.py:start():181] Starting system monitor
+2023-07-21 15:58:09,755 INFO    SystemMonitor:20128 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-21 15:58:09,755 INFO    HandlerThread:20128 [system_monitor.py:probe():201] Collecting system info
+2023-07-21 15:58:09,762 INFO    SystemMonitor:20128 [interfaces.py:start():190] Started cpu monitoring
+2023-07-21 15:58:09,763 INFO    SystemMonitor:20128 [interfaces.py:start():190] Started disk monitoring
+2023-07-21 15:58:09,763 INFO    SystemMonitor:20128 [interfaces.py:start():190] Started gpu monitoring
+2023-07-21 15:58:09,764 INFO    SystemMonitor:20128 [interfaces.py:start():190] Started memory monitoring
+2023-07-21 15:58:09,772 INFO    SystemMonitor:20128 [interfaces.py:start():190] Started network monitoring
+2023-07-21 15:58:09,786 DEBUG   HandlerThread:20128 [system_info.py:probe():195] Probing system
+2023-07-21 15:58:09,788 DEBUG   HandlerThread:20128 [system_info.py:_probe_git():180] Probing git
+2023-07-21 15:58:09,857 DEBUG   HandlerThread:20128 [system_info.py:_probe_git():188] Probing git done
+2023-07-21 15:58:09,857 DEBUG   HandlerThread:20128 [system_info.py:probe():240] Probing system done
+2023-07-21 15:58:09,858 DEBUG   HandlerThread:20128 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.19045-SP0', 'python': '3.11.4', 'heartbeatAt': '2023-07-21T22:58:09.786329', 'startedAt': '2023-07-21T22:58:08.445443', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'D:\\Machine_Learning\\hubmap-hacking-the-human-vasculature\\src\\models\\train.py', 'codePath': 'src\\models\\train.py', 'git': {'remote': 'https://github.com/pranav142/HuBMAP-Hacking-the-Human-Vasculature.git', 'commit': '819f3f3399b92dddfb2d15ffce0d306407ccfc33'}, 'email': 'pknadimp@gmail.com', 'root': 'D:/Machine_Learning/hubmap-hacking-the-human-vasculature', 'host': 'DESKTOP-I73899R', 'username': 'pknad', 'executable': 'C:\\Users\\pknad\\anaconda3\\envs\\pytorch\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3201.0, 'min': 0.0, 'max': 3201.0}, 'cpu_freq_per_core': [{'current': 3201.0, 'min': 0.0, 'max': 3201.0}], 'disk': {'total': 931.4794883728027, 'used': 14.05935287475586}, 'gpu': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'memory_total': 6442450944}], 'memory': {'total': 15.365715026855469}}
+2023-07-21 15:58:09,858 INFO    HandlerThread:20128 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-21 15:58:09,858 INFO    HandlerThread:20128 [system_monitor.py:probe():214] Publishing system info
+2023-07-21 15:58:09,858 DEBUG   HandlerThread:20128 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-21 15:58:09,859 DEBUG   HandlerThread:20128 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-21 15:58:09,859 DEBUG   HandlerThread:20128 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-07-21 15:58:10,228 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_created():272] file/dir created: .\wandb\run-20230721_155808-w5v2phnx\files\conda-environment.yaml
+2023-07-21 15:58:10,228 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_created():272] file/dir created: .\wandb\run-20230721_155808-w5v2phnx\files\wandb-summary.json
+2023-07-21 15:58:10,228 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_created():272] file/dir created: .\wandb\run-20230721_155808-w5v2phnx\files\requirements.txt
+2023-07-21 15:58:14,273 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\conda-environment.yaml
+2023-07-21 15:58:14,279 DEBUG   HandlerThread:20128 [system_info.py:_save_conda():86] Saving conda packages done
+2023-07-21 15:58:14,281 INFO    HandlerThread:20128 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-21 15:58:14,285 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:14,286 DEBUG   SenderThread:20128 [sender.py:send():369] send: files
+2023-07-21 15:58:14,286 INFO    SenderThread:20128 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-07-21 15:58:14,293 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:58:14,293 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:58:14,382 DEBUG   SenderThread:20128 [sender.py:send():369] send: telemetry
+2023-07-21 15:58:14,383 DEBUG   SenderThread:20128 [sender.py:send():369] send: metric
+2023-07-21 15:58:14,383 DEBUG   SenderThread:20128 [sender.py:send():369] send: telemetry
+2023-07-21 15:58:14,383 DEBUG   SenderThread:20128 [sender.py:send():369] send: metric
+2023-07-21 15:58:14,383 WARNING SenderThread:20128 [sender.py:send_metric():1305] Seen metric with glob (shouldn't happen)
+2023-07-21 15:58:14,383 DEBUG   SenderThread:20128 [sender.py:send():369] send: telemetry
+2023-07-21 15:58:14,383 DEBUG   SenderThread:20128 [sender.py:send():369] send: config
+2023-07-21 15:58:15,152 DEBUG   SenderThread:20128 [sender.py:send():369] send: config
+2023-07-21 15:58:15,283 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_created():272] file/dir created: .\wandb\run-20230721_155808-w5v2phnx\files\wandb-metadata.json
+2023-07-21 15:58:15,284 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_created():272] file/dir created: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:15,408 INFO    wandb-upload_0:20128 [upload_job.py:push():133] Uploaded file C:\Users\pknad\AppData\Local\Temp\tmpsr4epqqcwandb\fcojx2tw-wandb-metadata.json
+2023-07-21 15:58:17,307 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:19,061 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:19,329 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:24,130 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:29,197 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:29,308 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:58:29,309 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:58:34,370 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:35,503 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:39,432 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:39,546 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:41,599 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:58:44,323 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:58:44,324 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:58:44,622 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\config.yaml
+2023-07-21 15:58:49,460 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:54,519 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:59,578 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:58:59,838 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:58:59,838 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:59:04,636 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:05,840 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:59:09,715 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:09,776 DEBUG   SystemMonitor:20128 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-21 15:59:09,780 DEBUG   SenderThread:20128 [sender.py:send():369] send: stats
+2023-07-21 15:59:14,350 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:59:14,351 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:59:18,946 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:21,963 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:59:24,142 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:29,202 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:29,420 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-21 15:59:29,420 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: stop_status
+2023-07-21 15:59:34,550 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:35,128 WARNING FileStreamThread:20128 [file_stream.py:request_with_retry():664] requests_with_retry encountered retryable exception: 502 Server Error: Bad Gateway for url: https://api.wandb.ai/files/pknadimp/my-awesome-project/w5v2phnx/file_stream. func: <bound method Session.post of <requests.sessions.Session object at 0x000001A52D1EEA50>>, args: ('https://api.wandb.ai/files/pknadimp/my-awesome-project/w5v2phnx/file_stream',), kwargs: {'json': {'files': {'output.log': {'offset': 15, 'content': ['2023-07-21T22:58:35.047982 Sanity Checking DataLoader 0:   0%|                                                                                                                                                                                          | 0/2 [00:00<?, ?it/s]\n']}}, 'dropped': 0}}
+2023-07-21 15:59:39,589 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:39,794 DEBUG   SenderThread:20128 [sender.py:send():369] send: stats
+2023-07-21 15:59:41,591 DEBUG   SenderThread:20128 [sender.py:send():369] send: exit
+2023-07-21 15:59:41,592 INFO    SenderThread:20128 [sender.py:send_exit():574] handling exit code: 1
+2023-07-21 15:59:41,605 INFO    SenderThread:20128 [sender.py:send_exit():576] handling runtime: 91
+2023-07-21 15:59:41,616 INFO    SenderThread:20128 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-21 15:59:41,618 INFO    SenderThread:20128 [sender.py:send_exit():582] send defer
+2023-07-21 15:59:41,618 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,618 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-21 15:59:41,618 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,619 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-07-21 15:59:41,619 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 1
+2023-07-21 15:59:41,619 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,619 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-21 15:59:41,620 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,620 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-07-21 15:59:41,620 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 2
+2023-07-21 15:59:41,620 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,620 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-21 15:59:41,620 INFO    HandlerThread:20128 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-21 15:59:41,621 DEBUG   SystemMonitor:20128 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-21 15:59:41,621 DEBUG   SystemMonitor:20128 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-21 15:59:41,621 INFO    HandlerThread:20128 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-21 15:59:41,630 INFO    HandlerThread:20128 [interfaces.py:finish():202] Joined disk monitor
+2023-07-21 15:59:41,697 INFO    HandlerThread:20128 [interfaces.py:finish():202] Joined gpu monitor
+2023-07-21 15:59:41,697 INFO    HandlerThread:20128 [interfaces.py:finish():202] Joined memory monitor
+2023-07-21 15:59:41,697 INFO    HandlerThread:20128 [interfaces.py:finish():202] Joined network monitor
+2023-07-21 15:59:41,698 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,698 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-07-21 15:59:41,698 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 3
+2023-07-21 15:59:41,698 DEBUG   SenderThread:20128 [sender.py:send():369] send: stats
+2023-07-21 15:59:41,698 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,699 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-21 15:59:41,699 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,699 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-07-21 15:59:41,699 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 4
+2023-07-21 15:59:41,699 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,699 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-21 15:59:41,699 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,699 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-07-21 15:59:41,700 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 5
+2023-07-21 15:59:41,700 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,700 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-21 15:59:41,700 DEBUG   SenderThread:20128 [sender.py:send():369] send: summary
+2023-07-21 15:59:41,701 INFO    SenderThread:20128 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-21 15:59:41,701 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,701 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-07-21 15:59:41,701 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 6
+2023-07-21 15:59:41,701 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,702 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-21 15:59:41,702 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,702 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-07-21 15:59:41,702 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 7
+2023-07-21 15:59:41,702 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: status_report
+2023-07-21 15:59:41,702 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:41,702 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-21 15:59:41,702 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:41,702 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-07-21 15:59:42,152 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\wandb-summary.json
+2023-07-21 15:59:42,671 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:43,099 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 8
+2023-07-21 15:59:43,099 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:43,099 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:43,099 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-21 15:59:43,100 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:43,100 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-07-21 15:59:43,100 INFO    SenderThread:20128 [job_builder.py:build():240] Attempting to build job artifact
+2023-07-21 15:59:43,153 INFO    SenderThread:20128 [job_builder.py:build():264] is repo sourced job
+2023-07-21 15:59:43,167 INFO    Thread-16 :20128 [dir_watcher.py:_on_file_modified():289] file/dir modified: .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:59:43,177 INFO    SenderThread:20128 [job_builder.py:build():305] adding wandb-job metadata file
+2023-07-21 15:59:43,217 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 9
+2023-07-21 15:59:43,218 DEBUG   SenderThread:20128 [sender.py:send():369] send: artifact
+2023-07-21 15:59:43,218 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:43,221 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-21 15:59:43,678 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:44,016 INFO    SenderThread:20128 [sender.py:send_artifact():1450] sent artifact job-https___github.com_pranav142_HuBMAP-Hacking-the-Human-Vasculature.git_src_models_train.py - {'id': 'QXJ0aWZhY3Q6NTE5MTY3OTEw', 'digest': '6a112f1984f80a4e6827a1dde69622f0', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_pranav142_HuBMAP-Hacking-the-Human-Vasculature.git_src_models_train.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_pranav142_HuBMAP-Hacking-the-Human-Vasculature.git_src_models_train.py', 'alias': 'v3'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg0NjQzMjE3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTE5MTY3OTEw', 'versionIndex': 3}}, 'version': 'v3'}
+2023-07-21 15:59:44,017 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:44,017 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-07-21 15:59:44,017 INFO    SenderThread:20128 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-07-21 15:59:44,183 INFO    SenderThread:20128 [dir_watcher.py:finish():389] scan: .\wandb\run-20230721_155808-w5v2phnx\files
+2023-07-21 15:59:44,183 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\conda-environment.yaml conda-environment.yaml
+2023-07-21 15:59:44,183 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\config.yaml config.yaml
+2023-07-21 15:59:44,186 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\output.log output.log
+2023-07-21 15:59:44,187 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\requirements.txt requirements.txt
+2023-07-21 15:59:44,189 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\wandb-metadata.json wandb-metadata.json
+2023-07-21 15:59:44,189 INFO    SenderThread:20128 [dir_watcher.py:finish():403] scan save: .\wandb\run-20230721_155808-w5v2phnx\files\wandb-summary.json wandb-summary.json
+2023-07-21 15:59:44,191 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 10
+2023-07-21 15:59:44,193 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:44,194 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:44,194 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-21 15:59:44,196 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:44,196 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-07-21 15:59:44,196 INFO    SenderThread:20128 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-21 15:59:44,589 INFO    wandb-upload_0:20128 [upload_job.py:push():133] Uploaded file .\wandb\run-20230721_155808-w5v2phnx\files\conda-environment.yaml
+2023-07-21 15:59:44,692 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:44,692 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:45,042 INFO    wandb-upload_3:20128 [upload_job.py:push():133] Uploaded file .\wandb\run-20230721_155808-w5v2phnx\files\requirements.txt
+2023-07-21 15:59:45,101 INFO    wandb-upload_1:20128 [upload_job.py:push():133] Uploaded file .\wandb\run-20230721_155808-w5v2phnx\files\config.yaml
+2023-07-21 15:59:45,457 INFO    wandb-upload_2:20128 [upload_job.py:push():133] Uploaded file .\wandb\run-20230721_155808-w5v2phnx\files\output.log
+2023-07-21 15:59:45,511 INFO    wandb-upload_4:20128 [upload_job.py:push():133] Uploaded file .\wandb\run-20230721_155808-w5v2phnx\files\wandb-summary.json
+2023-07-21 15:59:45,704 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:45,704 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:45,720 INFO    Thread-15 (_thread_body):20128 [sender.py:transition_state():602] send defer: 11
+2023-07-21 15:59:45,720 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:45,720 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-21 15:59:45,721 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:45,721 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-07-21 15:59:45,721 INFO    SenderThread:20128 [file_pusher.py:join():164] waiting for file pusher
+2023-07-21 15:59:45,721 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 12
+2023-07-21 15:59:45,721 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:45,721 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-21 15:59:45,721 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:45,721 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-07-21 15:59:46,193 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 13
+2023-07-21 15:59:46,193 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:46,193 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-21 15:59:46,193 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:46,193 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-07-21 15:59:46,193 INFO    SenderThread:20128 [sender.py:transition_state():602] send defer: 14
+2023-07-21 15:59:46,194 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: defer
+2023-07-21 15:59:46,194 DEBUG   SenderThread:20128 [sender.py:send():369] send: final
+2023-07-21 15:59:46,194 INFO    HandlerThread:20128 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-21 15:59:46,194 DEBUG   SenderThread:20128 [sender.py:send():369] send: footer
+2023-07-21 15:59:46,194 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: defer
+2023-07-21 15:59:46,194 INFO    SenderThread:20128 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-07-21 15:59:46,195 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:46,195 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:46,195 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-21 15:59:46,196 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: server_info
+2023-07-21 15:59:46,196 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-21 15:59:46,196 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: poll_exit
+2023-07-21 15:59:46,196 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-21 15:59:46,196 DEBUG   SenderThread:20128 [sender.py:send_request():396] send_request: server_info
+2023-07-21 15:59:46,294 INFO    MainThread:20128 [wandb_run.py:_footer_history_summary_info():3464] rendering history
+2023-07-21 15:59:46,294 INFO    MainThread:20128 [wandb_run.py:_footer_history_summary_info():3496] rendering summary
+2023-07-21 15:59:46,294 INFO    MainThread:20128 [wandb_run.py:_footer_sync_info():3423] logging synced files
+2023-07-21 15:59:46,295 DEBUG   HandlerThread:20128 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-21 15:59:46,295 INFO    HandlerThread:20128 [handler.py:finish():854] shutting down handler
+2023-07-21 15:59:47,199 INFO    WriterThread:20128 [datastore.py:close():298] close: .\wandb\run-20230721_155808-w5v2phnx\run-w5v2phnx.wandb
+2023-07-21 15:59:47,294 INFO    SenderThread:20128 [sender.py:finish():1526] shutting down sender
+2023-07-21 15:59:47,294 INFO    SenderThread:20128 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-21 15:59:47,294 INFO    SenderThread:20128 [file_pusher.py:join():164] waiting for file pusher

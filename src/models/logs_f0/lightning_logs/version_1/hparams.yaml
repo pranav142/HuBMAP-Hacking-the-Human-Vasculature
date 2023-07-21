@@ -1,0 +1,15 @@
+config:
+  encoder_name: timm-resnest26d
+  image_size: 512
+  loss_smooth: 1.0
+  optimizer_params:
+    lr: 0.0005
+    weight_decay: 0.0
+  scheduler:
+    name: cosine_with_hard_restarts_schedule_with_warmup
+    params:
+      cosine_with_hard_restarts_schedule_with_warmup:
+        num_cycles: 1
+        num_training_steps: 3150
+        num_warmup_steps: 350
+  seg_model: Unet

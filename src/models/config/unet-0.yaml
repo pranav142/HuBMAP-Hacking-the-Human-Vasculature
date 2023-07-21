@@ -1,5 +1,5 @@
 data_path: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/data"
-output_dir: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/models/unetplusplus/version_0"
+output_dir: "D:/Machine_Learning/hubmap-hacking-the-human-vasculature/models/unet/version_2"
 
 folds:
   n_splits: 5
@@ -8,8 +8,8 @@ train_folds: [0, 1, 2, 3, 4]
 
 seed: 42
 
-train_bs: 2
-valid_bs: 2
+train_bs: 4
+valid_bs: 4
 workers: 1
 
 progress_bar_refresh_rate: 1
@@ -21,8 +21,8 @@ early_stop:
   verbose: 1
 
 trainer:
-  max_epochs: 20
-  min_epochs: 20
+  max_epochs: 1
+  min_epochs: 1
   enable_progress_bar: True
   precision: "16-mixed"
   devices: 1

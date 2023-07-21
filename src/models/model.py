@@ -8,6 +8,7 @@ import segmentation_models_pytorch as smp
 from torchmetrics.functional import dice
 from transformers import get_cosine_with_hard_restarts_schedule_with_warmup
 import wandb
+from losses import iou_score
 
 seg_models = {
     "Unet": smp.Unet,
@@ -33,7 +34,7 @@ class LightningModule(pl.LightningModule):
             classes=1,
             activation=None,
         )
-        self.loss_module = smp.losses.DiceLoss(
+        self.loss_module = smp.losses.JaccardLoss(
             mode="binary", smooth=config["loss_smooth"]
         )
         self.val_step_outputs = []
@@ -93,6 +94,12 @@ class LightningModule(pl.LightningModule):
         dice_coef = dice(preds, labels.long())
         return dice_coef
 
+    def __calculate_iou(self, preds, labels):
+        if preds is None:
+            return -1
+        iou_coef = iou_score(preds, labels)
+        return iou_coef
+
     def on_validation_epoch_end(self):
         torch.cuda.empty_cache()
         train_preds, train_labels = self.__create_preds_labels(
@@ -102,9 +109,9 @@ class LightningModule(pl.LightningModule):
             self.val_step_outputs, self.val_step_labels
         )
         self.__clear_lists()
-        val_dice = self.__calculate_dice(val_preds, val_labels)
-        train_dice = self.__calculate_dice(train_preds, train_labels)
-        self.log("val_dice", val_dice, on_step=False, on_epoch=True, prog_bar=True)
-        self.log("train_dice", train_dice, on_step=False, on_epoch=True, prog_bar=True)
+        val_iou = self.__calculate_iou(val_preds, val_labels)
+        train_iou = self.__calculate_iou(train_preds, train_labels)
+        self.log("val_iou", val_iou, on_step=False, on_epoch=True, prog_bar=True)
+        self.log("train_iou", train_iou, on_step=False, on_epoch=True, prog_bar=True)
         if self.trainer.global_rank == 0:
             print(f"\nEpoch: {self.current_epoch}", flush=True)

@@ -1,0 +1,38 @@
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name        | Type        | Params
+--------------------------------------------
+0 | model       | Unet        | 24.0 M
+1 | loss_module | JaccardLoss | 0
+--------------------------------------------
+24.0 M    Trainable params
+0         Non-trainable params
+24.0 M    Total params
+96.134    Total estimated model params size (MB)
+
+
+
+Sanity Checking DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:05<00:00,  2.88s/it]
+Epoch: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:   7%|████████████▍                                                                                                                                                                           | 44/653 [00:42<09:50,  1.03it/s, v_num=puvw]

@@ -1,0 +1,103 @@
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name        | Type        | Params
+--------------------------------------------
+0 | model       | Unet        | 24.0 M
+1 | loss_module | JaccardLoss | 0
+--------------------------------------------
+24.0 M    Trainable params
+0         Non-trainable params
+24.0 M    Total params
+96.134    Total estimated model params size (MB)
+
+
+
+Sanity Checking DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.03s/it]
+Epoch: 0
+Epoch 0:   0%|                                                                                                                                                                                                              | 0/82 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\Machine_Learning\hubmap-hacking-the-human-vasculature\src\models\train.py", line 103, in <module>
+    trainer.fit(model, data_loader_train, data_loader_validation)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 529, in fit
+    call._call_and_handle_interrupt(
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\call.py", line 42, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 568, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 973, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1016, in _run_stage
+    self.fit_loop.run()
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 201, in run
+    self.advance()
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 354, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 133, in run
+    self.advance(data_fetcher)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 218, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 185, in run
+    self._optimizer_step(kwargs.get("batch_idx", 0), closure)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 260, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\call.py", line 144, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\core\module.py", line 1256, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\core\optimizer.py", line 155, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\strategies\strategy.py", line 225, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\plugins\precision\amp.py", line 76, in optimizer_step
+    closure_result = closure()
+                     ^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 140, in __call__
+    self._result = self.closure(*args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 126, in closure
+    step_output = self._step_fn()
+                  ^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 307, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\trainer\call.py", line 291, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\pytorch_lightning\strategies\strategy.py", line 367, in training_step
+    return self.model.training_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Machine_Learning\hubmap-hacking-the-human-vasculature\src\models\model.py", line 56, in training_step
+    preds = self.model(imgs)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\segmentation_models_pytorch\base\model.py", line 30, in forward
+    decoder_output = self.decoder(*features)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\segmentation_models_pytorch\decoders\unet\decoder.py", line 119, in forward
+    x = decoder_block(x, skip)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\anaconda3\envs\pytorch\Lib\site-packages\segmentation_models_pytorch\decoders\unet\decoder.py", line 36, in forward
+    x = F.interpolate(x, scale_factor=2, mode="nearest")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pknad\AppData\Roaming\Python\Python311\site-packages\torch\nn\functional.py", line 3931, in interpolate
+    return torch._C._nn.upsample_nearest2d(input, output_size, scale_factors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 256.00 MiB (GPU 0; 6.00 GiB total capacity; 5.13 GiB already allocated; 0 bytes free; 5.28 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
